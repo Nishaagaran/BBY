@@ -9,8 +9,8 @@ pipeline {
     
     environment {
         // Set Java version
-        JAVA_HOME = "${tool 'JDK-17'}"
-        MAVEN_HOME = "${tool 'Maven'}"
+        JAVA_HOME = "${tool 'java17'}"
+        MAVEN_HOME = "${tool 'Maven3'}"
         PATH = "${MAVEN_HOME}/bin:${JAVA_HOME}/bin:${env.PATH}"
     }
     
