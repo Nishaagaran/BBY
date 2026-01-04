@@ -11,7 +11,7 @@ pipeline {
         // Set Java version
         JAVA_HOME = "${tool 'java17'}"
         MAVEN_HOME = "${tool 'Maven3'}"
-        PATH = "${MAVEN_HOME}/bin:${JAVA_HOME}/bin:${env.PATH}"
+        PATH = "${MAVEN_HOME}\\bin;${JAVA_HOME}\\bin;${env.PATH}"
     }
     
     stages {
@@ -20,8 +20,8 @@ pipeline {
                 echo 'Checking out code from repository...'
                 checkout scm
                 script {
-                    def gitCommit = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
-                    def gitBranch = sh(returnStdout: true, script: 'git rev-parse --abbrev-ref HEAD').trim()
+                    def gitCommit = bat(returnStdout: true, script: 'git rev-parse HEAD').trim()
+                    def gitBranch = bat(returnStdout: true, script: 'git rev-parse --abbrev-ref HEAD').trim()
                     echo "Git Branch: ${gitBranch}"
                     echo "Git Commit: ${gitCommit}"
                 }
@@ -31,7 +31,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the project with Maven...'
-                sh 'mvn clean compile'
+                bat 'mvn clean compile'
             }
             post {
                 success {
@@ -47,7 +47,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Running unit tests...'
-                sh 'mvn test'
+                bat 'mvn test'
             }
             post {
                 always {
