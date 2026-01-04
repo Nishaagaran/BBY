@@ -1,0 +1,9 @@
+com\movie\management\exception\GlobalExceptionHandler$ErrorResponse.class
+com\movie\management\exception\GlobalExceptionHandler.class
+com\movie\management\repository\MovieRepository.class
+com\movie\management\exception\MovieAlreadyExistsException.class
+com\movie\management\MovieManagementApplication.class
+com\movie\management\entity\Movie.class
+com\movie\management\exception\MovieNotFoundException.class
+com\movie\management\service\MovieService.class
+com\movie\management\controller\MovieController.class
