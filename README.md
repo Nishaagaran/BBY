@@ -197,6 +197,38 @@ The API includes comprehensive exception handling:
 - Validation errors (400) - When request validation fails
 - Generic exceptions (500) - For unexpected errors
 
+## CI/CD with Jenkins
+
+The project includes a Jenkinsfile for continuous integration and deployment.
+
+### Jenkins Pipeline
+
+The pipeline includes the following stages:
+1. **Checkout** - Checks out the source code from the repository
+2. **Build** - Compiles the project using Maven
+3. **Test** - Runs unit tests and publishes test results
+
+### Using the Jenkinsfile
+
+1. **Configure Jenkins:**
+   - Ensure Maven and JDK 17 are configured in Jenkins Global Tool Configuration
+   - Tool names should match: `Maven` and `JDK-17` (or update the Jenkinsfile accordingly)
+
+2. **Create a Pipeline Job:**
+   - In Jenkins, create a new Pipeline job
+   - Configure it to use "Pipeline script from SCM"
+   - Point to your repository and specify the branch
+   - Jenkins will automatically detect and use the `Jenkinsfile`
+
+3. **Run the Pipeline:**
+   - The pipeline will automatically execute on each build
+   - Test results will be published to Jenkins
+   - Build artifacts can be archived if needed
+
+### Alternative Simple Pipeline
+
+A simplified version (`Jenkinsfile.simple`) is also available for environments with minimal Jenkins configuration.
+
 ## Clean Architecture
 
 The project follows clean architecture principles:
